@@ -1,1 +1,5 @@
-# UTN-TuPaD-P1
+# UTN-TUPaD-P1
+
+- Virginia Paloma
+- Comisión 10
+- Profesora: Martina Zabala
