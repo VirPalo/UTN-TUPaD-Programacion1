@@ -1,4 +1,4 @@
-# UTN-TUPaD-P1
+# UTN-TUPaD-Programacion1
 
 - Virginia Paloma
 - Comisión 10
