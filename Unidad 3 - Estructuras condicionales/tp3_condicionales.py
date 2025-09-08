@@ -1,5 +1,5 @@
 # Ejercicio 1
-'''
+
 edad = int(input('Por favor, ingrese su edad\n'))
 
 if edad >= 18:
@@ -118,7 +118,110 @@ elif magnitud >= 7:
     print('Extremo')
 else:
     print('El valor ingresado no es válido')
-'''
+
 # Ejercicio 10
 
-hemisferio = input('Ingrese N si se encuentra en el hemisferio norte y S si se encuentra en el hemisferio sur')
+hemisferio = input('Ingrese N si se encuentra en el hemisferio Norte y S si se encuentra en el hemisferio Sur\n')
+    
+mes = int(input('Por favor, ingrese el mes con número. (1 al 12)\n'))
+    
+dia = int(input('Finalmente, ingrese el día. (1 al 31)\n'))
+
+if hemisferio == 'N' or hemisferio == 'n':
+    if mes == 12:
+        if dia >= 21 and dia <= 31:
+            print('La estación es Invierno')
+        elif dia >= 1 and dia < 21:
+            print('La estación es Otoño')
+        else:
+            print('El día ingresado no es válido')
+            
+    elif mes == 1 or mes == 2:
+        print('La estación es Invierno')
+        
+    elif mes == 3:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Invierno')
+        elif dia > 20 and dia <= 31:
+            print('La estación es Primavera')
+        else:
+            print('El día ingresado no es válido')
+            
+    elif mes == 4 or mes == 5:
+        print('La estación es Primavera')
+    
+    elif mes == 6:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Primavera')
+        elif dia > 20 and dia <= 30:
+            print('La estación es Verano')
+        else:
+            print('El día ingresado no es válido')
+        
+    elif mes == 7 or mes == 8:
+        print('La estación es Verano')
+    
+    elif mes == 9:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Verano')
+        elif dia > 20 and dia <= 30:
+            print('La estación es Otoño')
+        else:
+            print('El día ingresado no es válido')
+    
+    elif mes == 10 or mes == 11:
+        print('La estación es Otoño')
+    
+    else:
+        print('El mes ingresado no es válido')
+        
+elif hemisferio == 'S' or hemisferio == 's':
+    if mes == 12:
+        if dia >= 21 and dia <= 31:
+            print('La estación es Verano')
+        elif dia >= 1 and dia < 21:
+            print('La estación es Primavera')
+        else:
+            print('El día ingresado no es válido')
+            
+    elif mes == 1 or mes == 2:
+        print('La estación es Verano')
+        
+    elif mes == 3:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Verano')
+        elif dia > 20 and dia <= 31:
+            print('La estación es Otoño')
+        else:
+            print('El día ingresado no es válido')
+            
+    elif mes == 4 or mes == 5:
+        print('La estación es Otoño')
+    
+    elif mes == 6:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Otoño')
+        elif dia > 20 and dia <= 30:
+            print('La estación es Invierno')
+        else:
+            print('El día ingresado no es válido')
+        
+    elif mes == 7 or mes == 8:
+        print('La estación es Invierno')
+    
+    elif mes == 9:
+        if dia >= 1 and dia <= 20:
+            print('La estación es Invierno')
+        elif dia > 20 and dia <= 30:
+            print('La estación es Primavera')
+        else:
+            print('El día ingresado no es válido')
+    
+    elif mes == 10 or mes == 11:
+        print('La estación es Primavera')
+    
+    else:
+        print('El mes ingresado no es válido')
+    
+else:
+    print('El hemisferio ingresado no es válido')
