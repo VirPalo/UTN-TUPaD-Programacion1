@@ -1,5 +1,5 @@
 # Ejercicio 1
-'''
+
 for i in range(101):
     print(i)
 
@@ -59,6 +59,7 @@ for i in range(1, cant_num + 1):
 print('La sumatoria final es ', sumatoria)
  
 # Ejercicio 5
+
 import random
 
 num = random.randint(0, 9)
@@ -91,7 +92,7 @@ if num > 0:
     print('La sumatoria es', sumatoria)
 else:
     print('El número ingresado no es válido.')
-'''    
+   
 # Ejercicio 8
 
 c_par = 0
@@ -115,9 +116,31 @@ print(f'En la lista hay {c_pos} números positivos.')
 print(f'En la lista hay {c_neg} números negativos.')
 print(f'En la lista hay {c_par} números pares.')
 print(f'En la lista hay {c_impar} números impares.')
-
+ 
 # Ejercicio 9
 
+from statistics import mean
+
+lista=[]
+
+for i in range(1,6):
+    print('Ingrese el numero ', i)
+    num = int(input())
+    lista.append(num)
+
+media = mean(lista)
+print('La media es ', media)
 
 # Ejercicio 10
 
+num_invertido = 0
+digito = 0
+
+num = int(input('Ingrese un numero entero positivo\n'))
+
+while num > 0:
+    digito = num % 10
+    num_invertido = (num_invertido * 10) + digito
+    num = num // 10
+    
+print('El numero invertido es ', num_invertido)
