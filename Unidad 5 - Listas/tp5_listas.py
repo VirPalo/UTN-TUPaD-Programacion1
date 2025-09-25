@@ -97,21 +97,62 @@ elif opc == 0:
     print('El programa ha finalizado.')
 else:
     print('El valor ingresado no es correcto.')
-'''
 
 # Ejercicio 6
+
 numeros = [5, 80, 24, 32, 7, 12, 98, 65]
 print(numeros)
 
-for i in range(len(numeros)-1):
-    numeros[i], numeros[i+1] = numeros[i-1], numeros[i]
-
+ultimo = numeros.pop()
+numeros.insert(0, ultimo)
+    
 print(numeros)
-#NO FUNCIONA. REVEER.
 
 # Ejercicio 7
 
+temperaturas = [
+    [10, 24],
+    [12, 24],
+    [11, 21],
+    [7, 24],
+    [10, 24],
+    [12, 23],
+    [11, 22],
+]
+# Se calculan los promedios de temperaturas maximas y minimas
+
+suma_min = 0
+suma_max = 0
+
+for i in temperaturas:
+    suma_min += i[0]
+    suma_max += i[1]
+
+prom_min = suma_min / len(temperaturas)
+prom_max = suma_max / len(temperaturas)
+
+print(f'El promedio de las temperaturas bajas es {prom_min:.2f}°C.') # :.2f Me tira el promedio solo con dos decimales(redondea).
+print(f'El promedio de las temperaturas altas es {prom_max:.2f}°C.')
+
+# Se calcula la maxima amplitud termica y el dia en que se da.
+
+amplitud_max = 0
+dia_max_amplitud = -1
+
+for i, dia in enumerate(temperaturas): # Con funcion enumerate() recorro la lista y me traigo el indice.
+    amplitud = dia[1] - dia[0]
+    if amplitud > amplitud_max:
+        amplitud_max = amplitud
+        dia_max_amplitud = i
+
+print(f'La amplitud máxima es de {amplitud_max} grados y se da en el día {dia_max_amplitud}.') 
+'''
+
 # Ejercicio 8
+
+notas = [
+    
+]
 
 # Ejercicio 9
 
