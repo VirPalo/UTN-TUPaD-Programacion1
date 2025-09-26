@@ -1,5 +1,4 @@
-# Ejercicio 1
-'''
+# Ejercicio 1 ----------
 
 notas = [10, 9.3, 5.5, 7, 8.5, 10, 8, 9.5, 1, 4]
 suma = 0
@@ -18,7 +17,7 @@ promedio = suma / len(notas)
 print('El promedio de las notas es', promedio)
 print(f'La nota más alta es {nota_alta} y la nota más baja es {nota_baja}.')
 
-# Ejercicio 2
+# Ejercicio 2 ----------
 
 productos = []
 
@@ -42,8 +41,8 @@ elif opc == 0:
 else:
     print('Ha ingresado un valor incorrecto.')
 
+# Ejercicio 3 ----------
 
-# Ejercicio 3
 import random
 
 lista = []
@@ -66,15 +65,22 @@ for i in lista:
 print(f'Los numeros impares de la lista son {len(lista_impares)} y son los siguientes {lista_impares}.')
 print(f'Los numeros pares de la lista son {len(lista_pares)} y son los siguientes {lista_pares}.')
 
+# Ejercicio 4 ----------
 
-# Ejercicio 4
+datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
+print('La lista original es la siguiente:')
+print(datos)
 
-#datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
+lista_sin_rep = []
 
-#for i in range(len(datos)):
-#TERMINAR!!   
-    
-# Ejercicio 5
+for i, dato in enumerate(datos):
+    if dato not in lista_sin_rep:
+        lista_sin_rep.append(dato)
+
+print('La lista sin valores repetidos es:')
+print(lista_sin_rep)
+        
+# Ejercicio 5 ----------
 
 estudiantes = ['marcela', 'patricia', 'virginia', 'jose', 'juan', 'bautista', 'facundo', 'lorena']
 print('La lista de estudiantes presentes es :', estudiantes)
@@ -98,7 +104,7 @@ elif opc == 0:
 else:
     print('El valor ingresado no es correcto.')
 
-# Ejercicio 6
+# Ejercicio 6 ----------
 
 numeros = [5, 80, 24, 32, 7, 12, 98, 65]
 print(numeros)
@@ -108,7 +114,7 @@ numeros.insert(0, ultimo)
     
 print(numeros)
 
-# Ejercicio 7
+# Ejercicio 7 ----------
 
 temperaturas = [
     [10, 24],
@@ -148,7 +154,7 @@ for i, dia in enumerate(temperaturas): # Con funcion enumerate() recorro la list
 print(f'La amplitud máxima es de {amplitud_max} grados y se da en el día {dia_max_amplitud}.') 
 
 
-# Ejercicio 8
+# Ejercicio 8 ----------
 
 notas = [
     [7.5, 8, 10], # Estudiante 1 (materia 1, materia 2, materia 3)
@@ -176,22 +182,158 @@ for j in range(num_mat): # 3 materias
         suma_mat += notas[i][j] # sumo la nota del estudiante i de la materia j
     promedio_materia = suma_mat / num_est
     print(f'El promedio de la materia {j + 1} es {promedio_materia:.2f}')
-   ''' 
-# Ejercicio 9
+   
+# Ejercicio 9----------
 
+#Tablero inicial
 tablero = [
     ['-', '-', '-'],
     ['-', '-', '-'],
     ['-', '-', '-']
 ]
 
-print('<<<Bienvenidos al juego del Ta-Te-Ti>>>')
+#Instrucciones
+print('<<<Bienvenidos al Ta-Te-Ti>>>')
 print('\nInstrucciones:')
 print('Para el jugador 1 --> X')
 print('Para el jugador 2 --> O')
-print('Cuando sea su turno, elija la posición que quiere ocupar (fila, columna). Ejemplo: (0,3)')
-print('A continuación, el tablero inicial:')
-print(tablero)
+print('Posiciones: fila(0-2) y columna(0-2). Ejemplo: (0,1)')
 
-# Ejercicio 10
+print('Tablero inicial:')
+print('0 1 2')
+
+#Muestro el tablero inicial
+cant_filas = len(tablero)
+cant_columnas = len(tablero[0])
+
+for i in range(cant_filas):
+    for j in range(cant_columnas):
+        print(tablero[i][j], end=' ')
+    print()
+
+# Comienza el juego
+juego_finalizado = False
+jugador_actual = 'X'
+jugadas = 0
+
+while not juego_finalizado:
+    
+    print(f'Turno del jugador {jugador_actual}')
+    
+    # El jugador ingresa la posicion
+    fila = int(input('Ingrese la fila (0 - 1 - 2): '))
+    columna = int(input('Ingrese la columna (0 - 1 - 2): '))
+    
+    # Valido la entrada
+    if (fila <= 2 and fila >= 0) and (columna <= 2 and columna >= 0):
+        if tablero[fila][columna] == '-':
+            
+            tablero[fila][columna] = jugador_actual # Asigno la ficha
+            jugadas += jugadas + 1
+            
+            # Muestro tablero actualizado
+            for i in range(cant_filas):
+                for j in range(cant_columnas):
+                    print(tablero[i][j], end=' ')
+                print()
+                
+            # Verificacion finalizacion juego
+            
+            # Verifico filas
+            ganador_encontrado = False
+            for i in range(cant_filas):
+                if tablero[i][0] == tablero[i][1] == tablero[i][2] != '-':
+                    print(f'Jugador {jugador_actual} ganó el juego!')
+                    ganador_encontrado = True
+                    juego_finalizado = True
+            
+            #Verifico columnas
+            for j in range(cant_columnas):
+                if tablero[0][j] == tablero[1][j] == tablero[2][j] != '-':
+                    print(f'Jugador {jugador_actual} ganó el juego!')
+                    ganador_encontrado = True
+                    juego_finalizado = True
+            
+            
+            #Verifico diagonal 1
+            if tablero[0][0] == tablero[1][1] == tablero[2][2] != '-':
+                    print(f'Jugador {jugador_actual} ganó el juego!')
+                    ganador_encontrado = True
+                    juego_finalizado = True
+                    
+            #Verifico diagonal 2
+            if tablero[0][2] == tablero[1][1] == tablero[2][0] != '-':
+                    print(f'Jugador {jugador_actual} ganó el juego!')
+                    ganador_encontrado = True
+                    juego_finalizado = True
+                    
+            #Verifico empate
+            if jugadas == 9 and not ganador_encontrado:
+                print('Empate!')
+                juego_finalizado = True
+            
+            # Cambio jugador
+            if jugador_actual == 'X':
+                jugador_actual = 'O'
+            else:
+                jugador_actual = 'X'
+
+        else:
+            print('Esa posicion ya esta ocupada! Intente nuevamente.')
+    else:
+        print('Posicion incorrecta! Intente nuevamente ingresando numeros del 0 al 2.')
+
+print('Fin del juego')
+ 
+# Ejercicio 10 ----------
+
+ventas = [
+    [50, 30, 10, 101], # Dia 1 (Prod 1- prod 2 - prod 3 - prod 4)
+    [25, 33, 8, 98],
+    [40, 31, 9, 78],
+    [45, 29, 5, 90],
+    [20, 12, 3, 40],
+    [43, 27, 15, 110],
+    [37, 25, 10, 87],
+]
+
+num_dias = len(ventas)
+num_prod = len(ventas[0])
+
+# Total vendido por cada producto
+for j in range(num_prod): # 7 dias
+    total_prod = 0
+    for i in range(num_dias): # 4 productos
+        total_prod += ventas[i][j] # Sumo la cant de ventas del dia i del producto j
+    print(f'El total de ventas del producto {j+1} es {total_prod}')
+    
+print()
+
+# El dia con mayores ventas
+mayor_total_ventas = 0
+dia = 0
+
+for i, fila_dia in enumerate(ventas):
+    total_ventas = 0
+    #Sumo las ventas de todo el dia
+    for num_venta in fila_dia:
+        total_ventas += num_venta
+    #Comparo despues de sumar el dia completo  
+    if total_ventas > mayor_total_ventas:
+        mayor_total_ventas = total_ventas
+        dia = i
+
+print(f'La mayor venta fue de {mayor_total_ventas} productos en el dia {dia}')
+
+# Producto mas vendido de la semana
+prod_mas_vendido = 0
+producto = 0
+
+for i, fila_dia in enumerate(ventas):
+    for j, col_venta in enumerate(ventas[i]):
+        if ventas[i][j] > prod_mas_vendido:
+            prod_mas_vendido = ventas[i][j]
+            producto = j + 1
+
+print(f'El producto {producto} es el mas vendido, con {prod_mas_vendido} ventas.')
 
