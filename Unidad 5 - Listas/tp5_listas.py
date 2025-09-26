@@ -146,15 +146,52 @@ for i, dia in enumerate(temperaturas): # Con funcion enumerate() recorro la list
         dia_max_amplitud = i
 
 print(f'La amplitud máxima es de {amplitud_max} grados y se da en el día {dia_max_amplitud}.') 
-'''
+
 
 # Ejercicio 8
 
 notas = [
-    
+    [7.5, 8, 10], # Estudiante 1 (materia 1, materia 2, materia 3)
+    [6.5, 7.5, 9],
+    [3.5, 8, 10],
+    [8.5, 9, 7.5],
+    [6.5, 9, 5.5]
 ]
 
+num_est = len(notas)
+num_mat = len(notas[0])
+
+for i, estudiante in enumerate(notas):
+    suma_est = 0
+    for j, nota in enumerate(estudiante):
+        suma_est += nota
+    promedio_estudiante = suma_est / num_mat
+    print(f'El promedio del estudiante {i + 1} es {promedio_estudiante:.2f}')
+
+print('------')
+
+for j in range(num_mat): # 3 materias
+    suma_mat = 0
+    for i in range(num_est): # 5 estudiantes
+        suma_mat += notas[i][j] # sumo la nota del estudiante i de la materia j
+    promedio_materia = suma_mat / num_est
+    print(f'El promedio de la materia {j + 1} es {promedio_materia:.2f}')
+   ''' 
 # Ejercicio 9
+
+tablero = [
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+    ['-', '-', '-']
+]
+
+print('<<<Bienvenidos al juego del Ta-Te-Ti>>>')
+print('\nInstrucciones:')
+print('Para el jugador 1 --> X')
+print('Para el jugador 2 --> O')
+print('Cuando sea su turno, elija la posición que quiere ocupar (fila, columna). Ejemplo: (0,3)')
+print('A continuación, el tablero inicial:')
+print(tablero)
 
 # Ejercicio 10
 
