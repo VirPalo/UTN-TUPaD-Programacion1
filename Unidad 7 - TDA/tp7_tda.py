@@ -1,5 +1,5 @@
 # Ejercicio 1 ----------
-''' 
+ 
 #Defino el diccionario
 precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450}
 
@@ -119,11 +119,82 @@ al_menos_uno = list()
 
 al_menos_uno = p1.union(p2) # Todos los valores de ambos conjuntos
 print(f'Los alumnos que aprobaron al menos uno de los dos parciales son: {al_menos_uno}.')
-''' 
+
 # Ejercicio 8 ----------
 
-#productos = dict()
+productos = {
+    'manzana' : 45,
+    'peras' : 33,
+    'naranja' : 60,
+    'banana' : 55,
+    'kiwi' : 25,
+    'mandarina' : 28
+  }
 
+# Función para Mostrar los productos
+def mostrar_productos():
+  print('PRODUCTOS EN STOCK:')
+  print('PRODUCTO  |  CANTIDAD')
+  for i in productos:
+    print(f'- {i} | {productos[i]} unidades')  
+
+# Función para Consultar el stock de un producto
+def consultar_stock():
+  producto = input('Para consultar el stock, ingrese el producto: ').lower()
+  if producto in productos:
+    print(f'Hay {productos[producto]} unidades en stock.')
+  else:
+    print('El producto ingresado no existe.')
+
+# Función para Agregar unidades al stock de un producto si existe
+def agregar_unidades():
+  producto = input('Para ingresar unidades, ingrese el producto: ').lower()
+  
+  if producto in productos:
+    while True:
+      cantidad = int(input('Cuantas unidades desea ingresar? '))
+      
+      if cantidad > 0:
+        productos[producto] += cantidad
+        print('La cantidad se ha ingresado correctamente.')
+        break
+      elif cantidad < 0:
+        print('Debe ingresar un número entero positivo.')
+        
+  else:
+    print('El producto ingresado no existe.')
+    
+# Función para Agregar un nuevo producto, si no existe
+def agregar_producto():
+  producto = input('Para ingresar un nuevo producto, ingrese el nombre del producto: ').lower()
+  if producto not in productos:
+    productos[producto] = 0
+    while True:
+      cantidad = int(input('Cuantas unidades desea ingresar? '))
+      
+      if cantidad > 0:
+        productos[producto] += cantidad
+        print('Se ha ingresado correctamente.')
+        break
+      elif cantidad < 0:
+        print('Debe ingresar un número entero positivo.')
+        
+  else:
+    print('El producto ingresado ya existe.')
+
+# Llamada a función mostrar_productos
+mostrar_productos()
+
+# Llamada a función consultar_stock
+consultar_stock()
+
+# Llamada a función agregar_unidades
+agregar_unidades()
+
+# Llamada a funcion agregar_producto
+agregar_producto()
+
+ 
 # Ejercicio 9 ----------
 
 agenda = {
@@ -135,7 +206,64 @@ agenda = {
   ('viernes', '18:00'): 'Turno peluquería'          
 }
 
-print()
+# Función para mostrar agenda
+def mostrar_agenda():
+  print('AGENDA:')
+  print('DÍA Y HORA  |  ACTIVIDAD')
+  for clave in agenda.keys():
+    print(f'- {clave[0]} a las {clave[1]}: {agenda[clave]}')  
+
+# Funcion para consultar agenda
+def consultar_agenda():
+  
+  while True:
+    dia = input('Para consultar la actividad, ingrese el día (Ejemplo: lunes): ').lower()
+    hora = input('Ingrese la hora (Ejemplo: 10:00): ')
+    
+    if (dia, hora) in agenda.keys():
+      print(f'- {dia} a las {hora}: {agenda[(dia, hora)]}')
+      break
+    else:
+      print('Valor inválido o no existe en la agenda. Intente nuevamente.')
+    
+# Llamada a la función mostrar_agenda
+mostrar_agenda()
+
+# Llamada a la función consultar agenda
+consultar_agenda()
 
 # Ejercicio 10 ----------
+
+paises = {
+  'Argentina':'Ciudad Autónoma de Buenos Aires',
+  'Chile': 'Santiago',
+  'Uruguay': 'Montevideo',
+  'Paraguay': 'Asunción',
+  'Brasil': 'Brasilia',
+  'Perú': 'Lima',
+  'Venezuela': 'Caracas',
+  'Colombia': 'Bogotá'
+}
+
+# Función para mostrar el diccionario
+def mostrar_diccionario(diccionario):
+  for i in diccionario:
+      print(f'- {i}: {diccionario[i]}')  
+      
+# Función invertir diccionario
+def invertir_diccionario(diccionario):
+  invertido = dict()
+  for clave, valor in diccionario.items():
+    invertido[valor] = clave
+  return invertido
+
+# Llamada a la función mostrar diccionario
+mostrar_diccionario(paises)
+
+# Llamada a la función mostrar diccionario y luego, mostrar diccionario
+capitales = invertir_diccionario(paises)
+mostrar_diccionario(capitales)
+
+
+
 
