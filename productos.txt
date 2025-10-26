@@ -1,4 +1,4 @@
 Taza blanca,4500,10
 Copa,10000,12
 Ensaladera,7500,8
-Compotera,9500,5
+Compotera,7430,5

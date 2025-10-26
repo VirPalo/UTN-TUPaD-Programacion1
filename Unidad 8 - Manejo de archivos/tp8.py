@@ -1,5 +1,5 @@
 # Ejercicio 1 ----------
-'''
+
 # Lista para agregar los 3 productos juntos al .txt
 lineas = [
     'Taza blanca,4500,10\n',
@@ -31,7 +31,7 @@ producto = prod + ',' + precio + ',' + cant
 
 with open('productos.txt', 'a') as archivo:
     archivo.writelines(producto)
-'''
+
 # Ejercicio 4 ----------
 
 with open('productos.txt', 'r') as archivo:
@@ -46,18 +46,28 @@ with open('productos.txt', 'r') as archivo:
 nombre_ingresado = input('Para buscar un producto, ingrese su nombre: ')
 encontrado = False
 for producto in productos:
-    for clave, valor in producto.items():   # Ver si se puede reducir a un solo for 
-        if nombre_ingresado.lower() == valor.lower():
-            print(producto)
-            encontrado = True
+    if nombre_ingresado.lower() == producto['nombre'].lower():
+        print(producto)
+        encontrado = True
 
 if not encontrado:
     print('El producto no existe.')
         
 # Ejercicio 6 ----------
 
-with open('productos.txt', 'w') as archivo:
-    for producto in productos:
-        valores = producto.values()
+# Funcion para guardar los productos en el archivo
+def guardar_productos(productos):
+    with open('productos.txt', 'w') as archivo:
+        for producto in productos:
+            nombre = producto['nombre']
+            precio = producto['precio']
+            cantidad = producto['cantidad']
+            
+            linea = nombre + ',' + str(precio) + ',' + str(cantidad) + '\n'
+            archivo.write(linea)
+
+# Llamada a la funcion
+guardar_productos(productos)
+print('Archivo guardado correctamente.')
         
     
